@@ -3,3 +3,19 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+body {
+    padding: 2rem;
+}
+
+.grid-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+}
+
+img {
+    object-fit: contain;
+}
