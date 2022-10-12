@@ -9,13 +9,39 @@ body {
 }
 
 .grid-gallery {
-    display: flex;
+    /* display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     align-items: flex-start;
     gap: 1rem;
-    width: 100%;
+    width: 100%; */
+    columns: 2;
 }
 
 img {
     object-fit: contain;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    padding: 3rem 0;
+}
+
+.search-container #search {
+    height: 3rem;
+    max-width: 30rem;
+    width: 100%;
+    background-color: beige;
+    border: 2px solid black;
+    border-radius: 4px;
+    padding: 0 1rem;
+    font-size: 1.2rem;
+}
+
+.search-container #search:focus {
+    outline-offset: 2px;
+    outline-style: dashed;
+    outline-width: 2px;
+    outline-color: gold;
 }
