@@ -3,14 +3,22 @@ import _ from 'lodash';
 
 const imagesGridContainer = document.querySelector('.grid-gallery');
 const searchInput = document.querySelector('#search');
+const emptyStateContainer = document.querySelector('.empty-gallery');
+
+emptyStateContainer.classList.add('hidden')
 
 const fillImagesContainer = (images) => {
     imagesGridContainer.innerHTML = ''
 
     images.forEach((image) => {
+        const imageWrapper = document.createElement('div');
+        imageWrapper.classList.add('image-wrapper');
+
         const imageElement = new Image();
-        imageElement.src = image.urls.small;
-        imagesGridContainer.append(imageElement);
+        imageElement.src = image.urls.regular;
+
+        imageWrapper.append(imageElement);
+        imagesGridContainer.append(imageWrapper);
     })
 }
 
@@ -24,6 +32,12 @@ const fetchSearchedImages = _.debounce( async (event) => {
         'per_page': 20
      }})
 
+     if (!response.data.results.length) {
+        emptyStateContainer.classList.remove('hidden');
+     } else {
+        emptyStateContainer.classList.add('hidden');
+     }
+    
      fillImagesContainer(response.data.results)
 }, 1000);
 

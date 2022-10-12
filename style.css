@@ -18,8 +18,26 @@ body {
     columns: 2;
 }
 
+@media screen and (max-width: 600px) {
+    .grid-gallery {
+        columns: 1;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .grid-gallery {
+        columns: 3;
+    }
+}
+
+.grid-gallery .image-wrapper {
+    overflow: hidden;
+}
+
 img {
-    object-fit: contain;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
 }
 
 .search-container {
@@ -44,4 +62,16 @@ img {
     outline-style: dashed;
     outline-width: 2px;
     outline-color: gold;
+}
+
+.empty-gallery {
+    display: flex;
+    justify-content: center;
+    padding: 8rem 0;
+    background-color: beige;
+    border-radius: 1rem;
+}
+
+.hidden {
+    display: none;
 }
