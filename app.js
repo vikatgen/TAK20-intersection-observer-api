@@ -37,8 +37,9 @@ const fetchSearchedImages = _.debounce( async (event) => {
      } else {
         emptyStateContainer.classList.add('hidden');
      }
-    
+
      fillImagesContainer(response.data.results)
+    event.target.value = '';
 }, 1000);
 
 searchInput.addEventListener('input', fetchSearchedImages)
